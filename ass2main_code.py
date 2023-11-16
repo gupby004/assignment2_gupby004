@@ -18,3 +18,18 @@ class Reagent(ABC):
 
     def setPotency(self, new_potency):
         self.__potency = new_potency
+
+
+class Herb(Reagent):
+    def __init__(self, name, potency):
+        super().__init__(name, potency)
+        self.__grimy = True
+
+    def refine(self):
+        if self.__grimy:
+            self.__grimy = False
+            super().setPotency(self.getPotency() * 2.5)
+            print(f"{self.getName()} has been refined. New potency: {self.getPotency():.2f}")
+
+    def isGrimy(self):
+        return self.__grimy    
