@@ -111,3 +111,26 @@ class ExtremePotion(Potion):
 
     def getSuperPotion(self):
         return self.__super_potion        
+    
+
+class Laboratory:
+    def __init__(self):
+        self.__potions = []
+        self.__herbs = []
+        self.__catalysts = []
+
+    def mixPotion(self, reagent1, reagent2, potion):
+        boost = Potion.calculateBoost(reagent1, reagent2, None)
+        Potion.setBoost(boost)
+        self.__potions.append(potion)
+        print(f"Created {Potion.getName()} potion with {Potion.getBoost()} boost to {Potion.getStat()}.")
+
+    def addReagent(self, reagent):
+        if isinstance(reagent, Herb):
+            self.__herbs.append(reagent)
+        elif isinstance(reagent, Catalyst):
+            self.__catalysts.append(reagent)
+        else:
+            print("Invalid reagent type.")
+
+
