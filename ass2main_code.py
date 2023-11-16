@@ -33,3 +33,20 @@ class Herb(Reagent):
 
     def isGrimy(self):
         return self.__grimy    
+    
+
+class Catalyst(Reagent):
+    def __init__(self, name, potency, quality):
+        super().__init__(name, potency)
+        self.__quality = quality
+
+    def refine(self):
+        if self.__quality < 8.9:
+            self.__quality += 1.1
+            print(f"{self.getName()} has been refined. New quality: {self.getQuality():.2f}")
+        else:
+            self.__quality = 10.0
+            print(f"{self.getName()} cannot be refined any further. Quality set to 10.00")
+
+    def getQuality(self):
+        return self.__quality    
