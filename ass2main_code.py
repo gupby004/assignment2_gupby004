@@ -50,3 +50,26 @@ class Catalyst(Reagent):
 
     def getQuality(self):
         return self.__quality    
+    
+
+class Potion(ABC):
+    def __init__(self, name, stat, boost):
+        self.__name = name
+        self.__stat = stat
+        self.__boost = round(boost, 2)
+
+    @abstractmethod
+    def calculateBoost(self, reagent1=None, reagent2=None, super_potion=None):
+        pass
+
+    def getName(self):
+        return self.__name
+
+    def getStat(self):
+        return self.__stat
+
+    def getBoost(self):
+        return self.__boost
+
+    def setBoost(self, newBoost):
+        self.__boost = round(newBoost, 2)
