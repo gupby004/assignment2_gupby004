@@ -73,3 +73,22 @@ class Potion(ABC):
 
     def setBoost(self, newBoost):
         self.__boost = round(newBoost, 2)
+
+
+class SuperPotion(Potion):
+    def __init__(self, name, stat, herb, catalyst):
+        super().__init__(name, stat, 0.0)
+        self.__herb = herb
+        self.__catalyst = catalyst
+
+    def calculateBoost(self, herb, catalyst):
+        if herb is not None and catalyst is not None:
+            return round(Herb.getPotency() + (Catalyst.getPotency() * Catalyst.getQuality()) * 1.5, 2)
+        else:
+            return 0.0
+
+    def getHerb(self):
+        return self.__herb
+
+    def getCatalyst(self):
+        return self.__catalyst        
