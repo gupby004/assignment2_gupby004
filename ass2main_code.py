@@ -171,8 +171,19 @@ class Alchemist:
         self.laboratory.mixPotion(firstElement, secondElement, newPotion)
         
 
-    def drinkPotion(self):
-        pass
+    def drinkPotion(self, potion):
+        if potion.getStat() == "attack":
+            self.__attack += potion.getBoost()
+        elif potion.getStat() == "strength":
+            self.__strength += potion.getBoost()
+        elif potion.getStat() == "defense":
+            self.__defense += potion.getBoost()
+        elif potion.getStat() == "magic":
+            self.__magic += potion.getBoost()
+        elif potion.getStat() == "ranged":
+            self.__ranged += potion.getBoost()
+        else:
+            print("Unknown potion status")
 
 
     def collectReagent(self, reagent):
