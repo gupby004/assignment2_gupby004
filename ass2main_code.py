@@ -91,8 +91,8 @@ class SuperPotion(Potion):
         return self.__herb
 
     def getCatalyst(self):
-        return self.__catalyst        
-    
+        return self.__catalyst
+
 
 class ExtremePotion(Potion):
     def __init__(self, name, stat, reagent, super_potion):
@@ -110,4 +110,4 @@ class ExtremePotion(Potion):
         return self.__reagent
 
     def getSuperPotion(self):
-        return self.__super_potion    
+        return self.__super_potion        
