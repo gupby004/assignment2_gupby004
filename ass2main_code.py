@@ -92,3 +92,22 @@ class SuperPotion(Potion):
 
     def getCatalyst(self):
         return self.__catalyst        
+    
+
+class ExtremePotion(Potion):
+    def __init__(self, name, stat, reagent, super_potion):
+        super().__init__(name, stat, 0.0)
+        self.__reagent = reagent
+        self.__super_potion = super_potion
+
+    def calculateBoost(self, reagent, super_potion):
+        if reagent is not None and super_potion is not None:
+            return round((Reagent.getPotency() * SuperPotion.getBoost()) * 3.0, 2)
+        else:
+            return 0.0
+
+    def getReagent(self):
+        return self.__reagent
+
+    def getSuperPotion(self):
+        return self.__super_potion    
