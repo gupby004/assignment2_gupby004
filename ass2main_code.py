@@ -159,8 +159,16 @@ class Alchemist:
     def getRecipes(self, recipe):
         self.recipes.append(recipe)
 
-    def mixPotion(self):
-        pass
+    def mixPotion(self, firstElement, secondElement, potionName, stat):
+        if stat == "Super":
+            newPotion = SuperPotion(potionName, stat, firstElement, secondElement)
+        elif stat == "Extreme":
+            newPotion = ExtremePotion(potionName, stat, firstElement, secondElement)
+        else:
+            print("Invalid potion status.")
+            return
+
+        self.laboratory.mixPotion(firstElement, secondElement, newPotion)
         
 
     def drinkPotion(self):
