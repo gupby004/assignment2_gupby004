@@ -133,4 +133,14 @@ class Laboratory:
         else:
             print("Invalid reagent type.")
 
+    def refineReagents(self):
+        print("Refining the Reagents:")
+        for herb in self.__herbs:
+            Herb.refine()
+        for catalyst in self.__catalysts:
+            Catalyst.refine()
+
+        self.__herbs = []
+        self.__catalysts = []        
+
 
