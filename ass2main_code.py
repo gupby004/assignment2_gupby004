@@ -143,4 +143,33 @@ class Laboratory:
         self.__herbs = []
         self.__catalysts = []        
 
+class Alchemist:
+    def __init__(self, attack, strength, defense, magic, ranged):
+        self.__attack = attack
+        self.__strength = strength
+        self.__defense = defense
+        self.__magic = magic
+        self.__ranged = ranged
+        self.laboratory = Laboratory()
+        self.recipes = []
+
+    def getLaboratory(self):
+        return self.laboratory
+
+    def getRecipes(self, recipe):
+        self.recipes.append(recipe)
+
+    def mixPotion(self):
+        pass
+        
+
+    def drinkPotion(self):
+        pass
+
+
+    def collectReagent(self, reagent):
+        self.laboratory.addReagent(reagent)
+
+    def refineReagents(self):
+        self.laboratory.refineReagents()
 
