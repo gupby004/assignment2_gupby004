@@ -208,13 +208,14 @@ class SuperPotion(Potion):
         self.__herb = herb
         self.__catalyst = catalyst
 
-    def calculateBoost(self, herb, catalyst):
-
+    def calculateBoost(self, reagent1=None, reagent2=None, super_potion=None):
+        
         """
         Calculating the boost.
         """
-        if herb is not None and catalyst is not None:
-            return round(Herb.getPotency() + (Catalyst.getPotency() * Catalyst.getQuality()) * 1.5, 2)
+      
+        if self.__herb is not None and self.__catalyst is not None:
+            return round(self.__herb.getPotency() + (self.__catalyst.getPotency() * self.__catalyst.getQuality()) * 1.5, 2)
         else:
             return 0.0
 
