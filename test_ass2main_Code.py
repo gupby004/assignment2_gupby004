@@ -25,6 +25,24 @@ def testHerbCreation():
     assert herb.isGrimy() is False
     assert herb.getPotency() == 1.5 * 2.5
 
+"""
+Testing the methods of the catalyst class.
+"""    
+def testCatalyst():
+    catalyst = Catalyst("Eye of Newt", 4.3, 1.0)
+    assert catalyst.getName() == "Eye of Newt"
+    assert catalyst.getPotency() == 4.3
+    assert catalyst.getQuality() == 1.0
+
+def testCatalystRefine():
+    catalyst = Catalyst("Eye of Newt", 4.3, 7.5)
+    catalyst.refine()
+    assert catalyst.getQuality() == 8.6
+
+def testCatalystCannotFutherRefine():
+    catalyst = Catalyst("Eye of Newt", 4.3, 9.0)
+    catalyst.refine()
+    assert catalyst.getQuality() == 10.0
 
 
 if __name__ == "__main__":
