@@ -65,7 +65,7 @@ def testSuperPotionCalculateBoost():
     assert boost == round(herb.getPotency() + (catalyst.getPotency() * catalyst.getQuality()) * 1.5, 2)
 
 """
-Testing ExtremePotion class and calculateBoost method.
+Testing ExtremePotion class and calculateBoost method on it.
 """ 
 def testExtremePotion():
     reagent = Herb("Arbuck", 2.6)
