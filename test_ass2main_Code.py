@@ -84,6 +84,16 @@ def testExtremePotionCalculateBoost():
     boost = extreme_potion.calculateBoost(reagent, super_potion)
     assert boost == round((reagent.getPotency() * super_potion.getBoost()) * 3.0, 2)
 
+"""
+Testing Laboratory's mixPortion method.
+""" 
+def test_laboratory_mix_potion():
+    lab = Laboratory()
+    herb = Herb("Irit", 1.0)
+    catalyst = Catalyst("Eye of Newt", 4.3, 1.0)
+    lab.mixPotion(herb, catalyst, SuperPotion("Super Attack", "attack", herb, catalyst))
+    assert len(lab._Laboratory__potions) == 1 
+
 
 
 
