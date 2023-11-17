@@ -87,14 +87,21 @@ def testExtremePotionCalculateBoost():
 """
 Testing Laboratory mixPortion method.
 """ 
-def test_laboratory_mix_potion():
+def testLaboratoryMixPotion():
     lab = Laboratory()
     herb = Herb("Irit", 1.0)
     catalyst = Catalyst("Eye of Newt", 4.3, 1.0)
     lab.mixPotion(herb, catalyst, SuperPotion("Super Attack", "attack", herb, catalyst))
     assert len(lab._Laboratory__potions) == 1 
 
-
+"""
+Testing Laboratory addReagent method.
+""" 
+def testLaboratoryAddReagent():
+    lab = Laboratory()
+    herb = Herb("Irit", 1.0)
+    lab.addReagent(herb)
+    assert len(lab._Laboratory__herbs) == 1 
 
 
 if __name__ == "__main__":
