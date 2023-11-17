@@ -148,6 +148,13 @@ def testAlchemistMixPotion(alchemistInstance, herbInstance, catalystInstance, su
     alchemistInstance.laboratory.mixPotion(herbInstance, catalystInstance, superPotionInstance)
     assert len(alchemistInstance.laboratory._Laboratory__potions) == 1
 
+"""
+Testing drinkPotion method.
+"""
+def testAlchemistDrinkPotion(alchemistInstance, superPotionInstance):
+    alchemistInstance.drinkPotion(superPotionInstance)
+    assert alchemistInstance._Alchemist__attack == 10 + superPotionInstance.getBoost()    
+
 
 
 if __name__ == "__main__":
