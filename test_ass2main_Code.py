@@ -85,7 +85,7 @@ def testExtremePotionCalculateBoost():
     assert boost == round((reagent.getPotency() * super_potion.getBoost()) * 3.0, 2)
 
 """
-Testing Laboratory's mixPortion method.
+Testing Laboratory mixPortion method.
 """ 
 def test_laboratory_mix_potion():
     lab = Laboratory()

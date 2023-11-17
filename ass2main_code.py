@@ -303,10 +303,10 @@ class Laboratory:
         """
         Mixing two reagents to create a potion.
         """
-        boost = Potion.calculateBoost(reagent1, reagent2, None)
-        Potion.setBoost(boost)
+        boost = potion.calculateBoost(reagent1, reagent2, None)
+        potion.setBoost(boost)
         self.__potions.append(potion)
-        print(f"Created {Potion.getName()} potion with {Potion.getBoost()} boost to {Potion.getStat()}.")
+        print(f"Created {potion.getName()} potion with {potion.getBoost()} boost to {potion.getStat()}.")
 
     def addReagent(self, reagent):
 
@@ -327,9 +327,9 @@ class Laboratory:
         """
         print("Refining the Reagents:")
         for herb in self.__herbs:
-            Herb.refine()
+            herb.refine()
         for catalyst in self.__catalysts:
-            Catalyst.refine()
+            catalyst.refine()
 
         self.__herbs = []
         self.__catalysts = []        
