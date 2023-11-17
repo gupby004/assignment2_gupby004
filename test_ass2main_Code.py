@@ -142,18 +142,25 @@ def extremePotionInstance(herbInstance, superPotionInstance):
     return ExtremePotion("Extreme Attack", "attack", herbInstance, superPotionInstance)
 
 """
-Testing mixPotion method.
+Testing mix Potion method.
 """
 def testAlchemistMixPotion(alchemistInstance, herbInstance, catalystInstance, superPotionInstance):
     alchemistInstance.laboratory.mixPotion(herbInstance, catalystInstance, superPotionInstance)
     assert len(alchemistInstance.laboratory._Laboratory__potions) == 1
 
 """
-Testing drinkPotion method.
+Testing drink Potion method.
 """
 def testAlchemistDrinkPotion(alchemistInstance, superPotionInstance):
     alchemistInstance.drinkPotion(superPotionInstance)
-    assert alchemistInstance._Alchemist__attack == 10 + superPotionInstance.getBoost()    
+    assert alchemistInstance._Alchemist__attack == 10 + superPotionInstance.getBoost()  
+
+"""
+Testing collect reagent method.
+"""
+def testAlchemistCollectReagent(alchemistInstance, herbInstance):
+    alchemistInstance.laboratory.addReagent(herbInstance)
+    assert len(alchemistInstance.laboratory._Laboratory__herbs) == 1      
 
 
 
