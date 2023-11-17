@@ -259,7 +259,7 @@ class ExtremePotion(Potion):
         Calculating the boost.
         """
         if reagent is not None and super_potion is not None:
-            return round((Reagent.getPotency() * SuperPotion.getBoost()) * 3.0, 2)
+            return round((reagent.getPotency() * super_potion.getBoost()) * 3.0, 2)
         else:
             return 0.0
 

@@ -64,6 +64,27 @@ def testSuperPotionCalculateBoost():
     boost = super_potion.calculateBoost(herb, catalyst, None)
     assert boost == round(herb.getPotency() + (catalyst.getPotency() * catalyst.getQuality()) * 1.5, 2)
 
+"""
+Testing ExtremePotion class and calculateBoost method.
+""" 
+def testExtremePotion():
+    reagent = Herb("Arbuck", 2.6)
+    super_potion = SuperPotion("Super Attack", "attack", Herb("Irit", 1.0), Catalyst("Eye of Newt", 4.3, 1.0))
+    extreme_potion = ExtremePotion("Extreme Attack", "attack", reagent, super_potion)
+    assert extreme_potion.getName() == "Extreme Attack"
+    assert extreme_potion.getStat() == "attack"
+    assert extreme_potion.getBoost() == 0.0
+    assert extreme_potion.getReagent() == reagent
+    assert extreme_potion.getSuperPotion() == super_potion
+
+def testExtremePotionCalculateBoost():
+    reagent = Herb("Arbuck", 2.6)
+    super_potion = SuperPotion("Super Attack", "attack", Herb("Irit", 1.0), Catalyst("Eye of Newt", 4.3, 1.0))
+    extreme_potion = ExtremePotion("Extreme Attack", "attack", reagent, super_potion)
+    boost = extreme_potion.calculateBoost(reagent, super_potion)
+    assert boost == round((reagent.getPotency() * super_potion.getBoost()) * 3.0, 2)
+
+
 
 
 if __name__ == "__main__":
