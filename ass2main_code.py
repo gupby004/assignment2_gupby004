@@ -39,24 +39,12 @@ class Reagent(ABC):
         pass
 
     def getName(self):
-
-        """
-        To recieve the name of reagent.
-        """
         return self.__name
 
     def getPotency(self):
-
-        """
-        To recieve the potency of reagent.
-        """
         return self.__potency
 
     def setPotency(self, new_potency):
-
-        """
-        Setting the potency of reagent.
-        """
         self.__potency = new_potency
 
 
@@ -123,10 +111,6 @@ class Catalyst(Reagent):
             print(f"{self.getName()} cannot be refined any further. Quality set to 10.00")
 
     def getQuality(self):
-
-        """
-        Recieving the quality of the catalyst.
-        """
         return self.__quality    
     
 
@@ -161,31 +145,15 @@ class Potion(ABC):
         pass
 
     def getName(self):
-
-        """
-        To get the potion's name.
-        """
         return self.__name
 
     def getStat(self):
-
-        """
-        To get the stat.
-        """
         return self.__stat
 
     def getBoost(self):
-
-        """
-        To get the amount of potion's boost.
-        """
         return self.__boost
 
     def setBoost(self, newBoost):
-
-        """
-        Setting the boost.
-        """
         self.__boost = round(newBoost, 2)
 
 
@@ -220,17 +188,9 @@ class SuperPotion(Potion):
             return 0.0
 
     def getHerb(self):
-
-        """
-        To get the herb.
-        """
         return self.__herb
 
     def getCatalyst(self):
-
-        """
-        To get the catalyst.
-        """
         return self.__catalyst
 
 
@@ -264,17 +224,9 @@ class ExtremePotion(Potion):
             return 0.0
 
     def getReagent(self):
-
-        """
-        Get the reagent used.
-        """
         return self.__reagent
 
     def getSuperPotion(self):
-
-        """
-        Get superPotion used.
-        """
         return self.__super_potion        
     
 
@@ -366,17 +318,9 @@ class Alchemist:
         self.recipes = []
 
     def getLaboratory(self):
-
-        """
-        Get laboratory.
-        """
         return self.laboratory
 
     def getRecipes(self, recipe):
-
-        """
-        Get Recipes.
-        """
         self.recipes.append(recipe)
 
     def mixPotion(self, firstElement, secondElement, potionName, stat):
