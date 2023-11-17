@@ -113,5 +113,35 @@ def testLaboartoryRefineReagents():
     lab.refineReagents()
     assert len(lab._Laboratory__herbs) == 0
 
+"""
+Adding pytest fixtures.
+"""
+
+@pytest.fixture
+def alchemistInstance():
+    return Alchemist(10, 20, 30, 40, 50)
+
+@pytest.fixture
+def laboratoryInstance():
+    return Laboratory()
+
+@pytest.fixture
+def herbInstance():
+    return Herb("Irit", 1.0)
+
+@pytest.fixture
+def catalystInstance():
+    return Catalyst("Eye of Newt", 4.3, 1.0)
+
+@pytest.fixture
+def superPotionInstance(herbInstance, catalystInstance):
+    return SuperPotion("Super Attack", "attack", herbInstance, catalystInstance)
+
+@pytest.fixture
+def extremePotionInstance(herbInstance, superPotionInstance):
+    return ExtremePotion("Extreme Attack", "attack", herbInstance, superPotionInstance)
+
+
+
 if __name__ == "__main__":
     pytest.main()
