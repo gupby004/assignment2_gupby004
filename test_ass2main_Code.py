@@ -160,8 +160,14 @@ Testing collect reagent method.
 """
 def testAlchemistCollectReagent(alchemistInstance, herbInstance):
     alchemistInstance.laboratory.addReagent(herbInstance)
-    assert len(alchemistInstance.laboratory._Laboratory__herbs) == 1      
+    assert len(alchemistInstance.laboratory._Laboratory__herbs) == 1  
 
+"""
+Testing refine reagent method.
+"""
+def testAlchemistRefineReagents(alchemistInstance):
+    alchemistInstance.laboratory.refineReagents()
+    assert len(alchemistInstance.laboratory._Laboratory__herbs) == 0     
 
 
 if __name__ == "__main__":
