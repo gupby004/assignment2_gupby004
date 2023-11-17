@@ -141,6 +141,13 @@ def superPotionInstance(herbInstance, catalystInstance):
 def extremePotionInstance(herbInstance, superPotionInstance):
     return ExtremePotion("Extreme Attack", "attack", herbInstance, superPotionInstance)
 
+"""
+Testing mixPotion method.
+"""
+def testAlchemistMixPotion(alchemistInstance, herbInstance, catalystInstance, superPotionInstance):
+    alchemistInstance.laboratory.mixPotion(herbInstance, catalystInstance, superPotionInstance)
+    assert len(alchemistInstance.laboratory._Laboratory__potions) == 1
+
 
 
 if __name__ == "__main__":
