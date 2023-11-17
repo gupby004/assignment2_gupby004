@@ -104,7 +104,7 @@ def testLaboratoryAddReagent():
     assert len(lab._Laboratory__herbs) == 1 
 
 """
-Testing Laboratory refine reagents method.
+Testing refine reagents method in laboratory class.
 """ 
 def testLaboartoryRefineReagents():
     lab = Laboratory()
