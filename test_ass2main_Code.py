@@ -44,6 +44,27 @@ def testCatalystCannotFutherRefine():
     catalyst.refine()
     assert catalyst.getQuality() == 10.0
 
+"""
+Testing SuperPotion class and calculateBoost method.
+"""  
+def testSuperPotion():
+    herb = Herb("Arbuck", 2.6)
+    catalyst = Catalyst("Eye of Newt", 4.3, 1.0)
+    super_potion = SuperPotion("Super Attack", "attack", herb, catalyst)
+    assert super_potion.getName() == "Super Attack"
+    assert super_potion.getStat() == "attack"
+    assert super_potion.getBoost() == 0.0
+    assert super_potion.getHerb() == herb
+    assert super_potion.getCatalyst() == catalyst
+
+def testSuperPotionCalculateBoost():
+    herb = Herb("Arbuck", 2.6)
+    catalyst = Catalyst("Eye of Newt", 4.3, 1.0)
+    super_potion = SuperPotion("Super Attack", "attack", herb, catalyst)
+    boost = super_potion.calculateBoost(herb, catalyst, None)
+    assert boost == round(herb.getPotency() + (catalyst.getPotency() * catalyst.getQuality()) * 1.5, 2)
+
+
 
 if __name__ == "__main__":
     pytest.main()
