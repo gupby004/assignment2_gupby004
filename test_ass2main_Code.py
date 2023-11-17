@@ -103,6 +103,15 @@ def testLaboratoryAddReagent():
     lab.addReagent(herb)
     assert len(lab._Laboratory__herbs) == 1 
 
+"""
+Testing Laboratory refine reagents method.
+""" 
+def testLaboartoryRefineReagents():
+    lab = Laboratory()
+    herb = Herb("Irit", 1.0)
+    lab.addReagent(herb)
+    lab.refineReagents()
+    assert len(lab._Laboratory__herbs) == 0
 
 if __name__ == "__main__":
     pytest.main()
